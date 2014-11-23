@@ -44,10 +44,7 @@ echo '5 ' . 'Unix time ' . $date['data5']. ' GMT ' . date('Y-m-d',$date['data5']
 echo '<br>';
 echo '<br>';
 
-echo "Преобразуем массив, чтобы найти min и max";
-
-echo '<br>';
-echo '<br>';
+//echo "Преобразуем массив, чтобы найти min и max";
 
 $date2 = array ($data1 = array('y' => '1993', 'm' => '12','d' => '07'),
                $data2 = array ('y' => '1994','m' => '04','d' => '12'),
@@ -57,7 +54,7 @@ $date2 = array ($data1 = array('y' => '1993', 'm' => '12','d' => '07'),
     
    );
 
-var_dump($date2);
+//var_dump($date2);
 
 
 $numbers = array_map(function($details) {
@@ -134,4 +131,3 @@ date_default_timezone_set('America/New_York').'<br>';
 echo 'Измененный часовой пояс'.'<br>';
 echo date_default_timezone_get().'<br>';
 echo 'Текущее время '. date('d-m-Y H:i:s');
-
