@@ -10,13 +10,44 @@ $date = array ('data1' => rand (0,time()),
 
 print_r($date);
 
-echo "Создаем массив и генерируем числа";
+echo '<br>';
+echo '<br>';
+
+$low_day = array ('data1' => rand (0,time()),
+               'data2' => rand (0,time()),
+               'data3' => rand (0,time()),
+               'data4' => rand (0,time()),
+               'data5' => rand (0,time())
+    
+   );
+
+echo 'Наименьший день '. min(date('d',$low_day ['data1']),
+                             date('d',$low_day ['data2']),
+                             date('d',$low_day ['data3']),
+                             date('d',$low_day ['data4']),
+                             date('d',$low_day ['data5']));
 
 echo '<br>';
 echo '<br>';
 
+$high_month = array ('data1' => rand (0,time()),
+               'data2' => rand (0,time()),
+               'data3' => rand (0,time()),
+               'data4' => rand (0,time()),
+               'data5' => rand (0,time())
+    
+   );
 
-echo "Сортировка массива по возрастанию дат";
+echo 'Наибольший месяц '. max(date('m',$high_month ['data1']),
+                             date('m',$high_month ['data2']),
+                             date('m',$high_month ['data3']),
+                             date('m',$high_month ['data4']),
+                             date('m',$high_month ['data5']));
+
+echo '<br>';
+echo '<br>';
+
+echo 'Сортировка массива по возрастанию дат';
 
 asort($date);
 foreach ($date as $key => $val) {
