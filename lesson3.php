@@ -13,13 +13,6 @@ print_r($date);
 echo '<br>';
 echo '<br>';
 
-$low_day = array ('data1' => rand (0,time()),
-               'data2' => rand (0,time()),
-               'data3' => rand (0,time()),
-               'data4' => rand (0,time()),
-               'data5' => rand (0,time())
-    
-   );
 
 echo 'Наименьший день '. min(date('d',$date ['data1']),
                              date('d',$date ['data2']),
