@@ -21,28 +21,21 @@ $low_day = array ('data1' => rand (0,time()),
     
    );
 
-echo 'Наименьший день '. min(date('d',$low_day ['data1']),
-                             date('d',$low_day ['data2']),
-                             date('d',$low_day ['data3']),
-                             date('d',$low_day ['data4']),
-                             date('d',$low_day ['data5']));
+echo 'Наименьший день '. min(date('d',$date ['data1']),
+                             date('d',$date ['data2']),
+                             date('d',$date ['data3']),
+                             date('d',$date ['data4']),
+                             date('d',$date ['data5']));
 
 echo '<br>';
 echo '<br>';
 
-$high_month = array ('data1' => rand (0,time()),
-               'data2' => rand (0,time()),
-               'data3' => rand (0,time()),
-               'data4' => rand (0,time()),
-               'data5' => rand (0,time())
-    
-   );
 
-echo 'Наибольший месяц '. max(date('m',$high_month ['data1']),
-                             date('m',$high_month ['data2']),
-                             date('m',$high_month ['data3']),
-                             date('m',$high_month ['data4']),
-                             date('m',$high_month ['data5']));
+echo 'Наибольший месяц '. max(date('m',$date ['data1']),
+                             date('m',$date ['data2']),
+                             date('m',$date ['data3']),
+                             date('m',$date ['data4']),
+                             date('m',$date ['data5']));
 
 echo '<br>';
 echo '<br>';
