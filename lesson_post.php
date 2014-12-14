@@ -32,8 +32,8 @@ $news=  explode("\n", $news);
 	<body>
 	<h3>Введите номер статьи</h3>
 	<form method="POST">
-	<input type="text" name="id" value=""/>
-	<input type="submit"/>
+	<input type="text" name="id" value="">
+	<input type="submit">
 	</form>
 	</body>
 </html>
