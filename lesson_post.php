@@ -1,9 +1,13 @@
 <?php
 
-header("Content-Type: text/html; charset=utf-8");
-
+header("Content-Type: text/html; charset=utf-8"); 
 ini_set('display_errors', 'On');
-error_reporting( E_ALL | E_STRICT );
+error_reporting( E_ALL | E_STRICT ); 
+
+
+if(!isset($_POST['id']) || empty($_POST['id'])) {    
+    header("HTTP/1.0 404 Not Found");
+}
 
 
 $news='Четыре новосибирские компании вошли в сотню лучших работодателей
@@ -23,52 +27,56 @@ $news=  explode("\n", $news);
 
 <html>
 	<head>
+        <meta charset="utf-8">
 	</head>
 	<body>
-
 	<h3>Введите номер статьи</h3>
-
 	<form method="POST">
-	<input type="text" name="id" value="">
-	<input type="submit">
+	<input type="text" name="id" value=""/>
+	<input type="submit"/>
 	</form>
-
 	</body>
 </html>
 
-<?
-function show_list($news)
-{
-     for ($i = 0; $i < count($news); $i++)
-{
-       echo '<li>';
-       echo '<a href="lesson_post.php?id=' . ($i + 1) . '">';
-       echo $news[$i];
-       
 
+<?php
+
+
+// Функция вывода всего списка новостей
+function show_list($news) {
+     for ($i = 1; $i < count($news) + 1; $i++) {
+       echo $i . '<a href ="?id='. ($i) . '">' . $news[$i-1] . ' <a><br>';
+       
+     }
 }
-}
-//echo show_list($news);
+//show_list($news);
 
 
  // Функция вывода конкретной новости.
-function show_item($news, $id)
+function show_item(array$news, $id=null)
 {
-     echo $news[$id - 1].'</p>';
-     echo '</p>';
-}
+     if (!is_null($id) && !empty($news[$id-1])) {
+         echo 'Статья: № ' . $id . '<br><br>';
+         echo $news[$id-1];
+     }else{
+         echo '<p><b>Такой статьи не существует</b></p>'; 
+         foreach ($news as $newsId => $newsItem){
+             $newsId +=1;
+             echo $newsId . sprintf('<a href="?id=%s"> %s </a><br>', $newsId, $newsItem);
+            }                 
+         }
+     }
+//     show_item($news, $_POST['id']);
 
 
 // Точка входа
 // Был ли передан id новости в качестве параметра?
 
-if (isset($_POST['id']))
-{
-     show_item($news, $_POST['id']);
-}
-  else
-{
+if (isset($_POST['id'])) {   
+     show_item($news, $_POST['id']);   
+} else {
      echo show_list($news);
-
 }
 
+
+?>
