@@ -4,6 +4,7 @@ header("Content-Type: text/html; charset=utf-8");
 ini_set('display_errors', 'On');
 error_reporting( E_ALL | E_STRICT ); 
 
+
 $news='Четыре новосибирские компании вошли в сотню лучших работодателей
 Выставка университетов США: открой новые горизонты
 Оценку «неудовлетворительно» по качеству получает каждая 5-я квартира в новостройке
@@ -34,6 +35,11 @@ $news=  explode("\n", $news);
 
 
 <?php
+// 404 ошибка     
+function error(){
+   header($_SERVER["SERVER_PROTOCOL"]." 404 Not Found");
+  echo '<p><b>Такой статьи не существует</b></p>'; 
+} 
 
 
 // Функция вывода всего списка новостей
@@ -53,7 +59,7 @@ function show_item(array$news, $id=null)
          echo 'Статья: № ' . $id . '<br><br>';
          echo $news[$id-1];
      }else{
-         echo '<p><b>Такой статьи не существует</b></p>'; 
+         error(); 
          foreach ($news as $newsId => $newsItem){
              $newsId +=1;
              echo $newsId . sprintf('<a href="?id=%s"> %s </a><br>', $newsId, $newsItem);
@@ -69,6 +75,7 @@ function show_item(array$news, $id=null)
 if (isset($_POST['id'])) {   
      show_item($news, $_POST['id']);   
 } else {
+     error();
      echo show_list($news);
 }
 

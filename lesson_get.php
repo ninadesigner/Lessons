@@ -5,6 +5,12 @@ ini_set('display_errors', 'On');
 error_reporting( E_ALL | E_STRICT ); 
 
 
+if(!isset($_GET['id']) || empty($_GET['id'])) {    
+    header("HTTP/1.0 404 Not Found");
+    
+}
+
+
 $news='Четыре новосибирские компании вошли в сотню лучших работодателей
 Выставка университетов США: открой новые горизонты
 Оценку «неудовлетворительно» по качеству получает каждая 5-я квартира в новостройке
@@ -29,6 +35,13 @@ function show_list($news) {
 //show_list($news);
 
 
+// 404 ошибка     
+function error(){
+   header($_SERVER["SERVER_PROTOCOL"]." 404 Not Found");
+  echo '<p><b>Такой статьи не существует</b></p>'; 
+} 
+
+
  // Функция вывода конкретной новости.
 function show_item(array$news, $id=null)
 {
@@ -36,7 +49,7 @@ function show_item(array$news, $id=null)
          echo 'Статья: № ' . $id . '<br><br>';
          echo $news[$id-1];
      }else{
-         echo '<p><b>Такой статьи не существует</b></p>'; 
+         error(); 
          foreach ($news as $newsId => $newsItem){
              $newsId +=1;
              echo $newsId . sprintf('<a href="?id=%s"> %s </a><br>', $newsId, $newsItem);
@@ -45,6 +58,7 @@ function show_item(array$news, $id=null)
      }
 //     show_item($news, $_GET['id']);
 
+     
 
 // Точка входа
 // Был ли передан id новости в качестве параметра?
@@ -52,6 +66,7 @@ function show_item(array$news, $id=null)
 if (isset($_GET['id'])) {   
      show_item($news, $_GET['id']);   
 } else {
+     error();
      echo show_list($news);
 }
 
