@@ -4,12 +4,6 @@ header("Content-Type: text/html; charset=utf-8");
 ini_set('display_errors', 'On');
 error_reporting( E_ALL | E_STRICT ); 
 
-
-if(!isset($_POST['id']) || empty($_POST['id'])) {    
-    header("HTTP/1.0 404 Not Found");
-}
-
-
 $news='Четыре новосибирские компании вошли в сотню лучших работодателей
 Выставка университетов США: открой новые горизонты
 Оценку «неудовлетворительно» по качеству получает каждая 5-я квартира в новостройке
