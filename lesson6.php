@@ -219,7 +219,7 @@ function show_item($id=FALSE) {
                 <div class="vas-submit-button pull-left"> 
                     <span class="vas-submit-border"></span> 
                     <span class="vas-submit-triangle"></span> 
-                    <input type="submit" value="Отправить" id="form_submit" name="main_form_submit" class="my_button"</input> 
+                    <input type="submit" value="Отправить" id="form_submit" name="main_form_submit" class="my_button"
                 </div>
             </div>
             </form>
