@@ -52,7 +52,7 @@ function show_table($show_id=false) {
      
 // обработчик формы
 
-function show_item($id=FALSE) {
+function show_item($id=-1) {
   
 ?>
 
@@ -212,7 +212,7 @@ function show_item($id=FALSE) {
         
         <div id="price_rw" class="form-row rl"> 
             <label id="price_lbl" for="fld_price" class="form-label">Цена</label> 
-            <input type="text" maxlength="9" class="form-input-text-short" value="<?php  if(isset($_SESSION['bd'][$id]['fld_price']))echo $_SESSION['bd'][$id]['fld_price'] ?>" name="price" id="fld_price">&nbsp;
+            <input type="text" maxlength="9" class="form-input-text-short" value="<?php  if(isset($_SESSION['bd'][$id]['price']))echo $_SESSION['bd'][$id]['price'] ?>" name="price" id="fld_price">&nbsp;
             <span id="fld_price_title">руб.</span> 
 
             <div class="form-row-indented form-row-submit b-vas-submit" id="js_additem_form_submit">
